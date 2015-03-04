@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<MyOwn_MassDeleteSales>
+			<version>1.0</version>
+		</MyOwn_MassDeleteSales>
+	</modules>
+	<admin>
+		<routers>
+			<massdeletesales>
+				<use>admin</use>
+				<args>
+					<module>MyOwn_MassDeleteSales</module>
+					<frontName>MassDeleteSales</frontName>
+				</args>
+			</massdeletesales>
+		</routers>
+	</admin>
+	<global>
+		<models>
+			<myown_massdeletesales>
+				<class>MyOwn_MassDeleteSales_Model</class>
+			</myown_massdeletesales>
+		</models>
+		<events>
+			<core_block_abstract_to_html_before>
+				<observers>
+					<myown_massdeletesales>
+						<class>myown_massdeletesales/observer</class>
+						<method>massDelete</method>
+						<type>singleton</type>
+					</myown_massdeletesales>
+				</observers>
+			</core_block_abstract_to_html_before>
+		</events>
+	</global>
+</config>
