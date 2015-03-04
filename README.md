@@ -1,0 +1,2 @@
+# ExampleMagentoModule
+Contains example code
