@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<TSM_OSRNoFreightShipped>
+			<version>1.0</version>
+		</TSM_OSRNoFreightShipped>
+	</modules>
+	<global>
+		<models>
+			<tsm_osrnofreightshipped>
+				<class>TSM_OSRNoFreightShipped_Model</class>
+			</tsm_osrnofreightshipped>
+		</models>
+		<events>
+			<sales_quote_save_before>
+				<observers>
+					<tsm_osrnofreightshipped>
+						<class>tsm_osrnofreightshipped/observer</class>
+						<method>noFreightShipping</method>
+						<type>singleton</type>
+					</tsm_osrnofreightshipped>
+				</observers>
+			</sales_quote_save_before>
+		</events>
+	</global>
+</config>

@@ -1,0 +1,2 @@
+{{config path='general/store_information/store_hours'}}
+copy into email templates

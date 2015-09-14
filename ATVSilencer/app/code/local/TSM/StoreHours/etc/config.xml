@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- Adds a "Store hours" field to System > Configuration > General > Store Information --> 
+<config> 
+	<modules> 
+		<TSM_StoreHours> 
+			<version>0.1.0</version> 
+		</TSM_StoreHours> 
+	</modules> 
+</config>

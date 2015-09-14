@@ -1,0 +1,89 @@
+shopping cart in header   app/design/frontend/default/ma_lyra_left/template/page/html/header.phtml
+
+usterritoriescustomflatrate
+
+Country and Regions database tables.
+directory_country
+	country_id
+	iso2_code
+	iso3_code
+	
+directory_country_region
+	region_id
+	country_id
+	code
+	default_name
+
+	Alaska - region_id = 2, country_id = US, code = AS, default_name = Alaska
+	Hawaii - region_id = 21, country_id = US, code = HI, default_name = Hawaii
+
+directory_country_region_name
+	locale = en_US
+	region_id
+	name
+
+	Alaska - region_id = 2, name = Alaska
+	Hawaii - region_id = 21, name = Hawaii
+
+United States Caribean = UC
+Pacifice = UP
+Armed Forces = UF
+
+Its very easy to add new country in magento just follow the the steps given below and your are done with it 
+
+Step1: Open lib/zend/locale/data/en.xml 
+Step2: Locate territories tag in this file 
+Step3: copy one of territory tags for the syntax and paste it within the territories tag 
+Step4: hard part here is to add country code in this file as might not be able to find a unique one, so it’s upto you. 
+Step5: Save this file 
+Step6: Open table name directory_country 
+Step7: It has predefined syntax follow then same and create a new row and enter the same country code as entered in the en.xml file in 3 columns. 
+Step7: Refresh the site’s cache. 
+Step8: Admin > Configuration > General this new country should be selected in list of allowed countries.
+
+			<!--<territory type="US">United States</territory>-->
+			<territory type="US">United States Continental</territory>
+			<territory type="UX">United States Hawii and Alaska</territory>
+edit directory_country_region for alasak and hawaii
+
+Following have been modified in Directory Country Region to XX
+American Samoa
+Armed Forces Africa
+Armed Forces Americas
+Armed Forces Canada
+Armed Forces Europe
+Armed Forces Middle East
+Armed Forces Pacific
+Federated States Of Micronesia
+Guam
+Marshall Islands
+Northern Mariana Islands
+Palau
+Puerto Rico
+Virgin Islands
+
+Control what countries show on website at Config -> Current Configuration Scope: Default Store View -> General - > Country Options
+
+
+
+Canada = Southern Canada
+Northern Canada
+Country and Regions database tables.
+directory_country
+	country_id  CB
+	iso2_code   CB
+	iso3_code   CBB
+directory_country_region
+	region_id
+	country_id
+	code
+	default_name
+	
+	Northwest Territories
+	Nunavut
+	Yukon Territory
+
+
+			<!--<territory type="CA">Canada</territory>-->
+			<territory type="CA">Canada: South</territory>
+			<territory type="CB">Canada: North</territory>

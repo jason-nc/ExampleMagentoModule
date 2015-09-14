@@ -1,0 +1,34 @@
+Modify the order of the attributes on the Advanced Search Page
+
+Copy
+/public_html/app/code/core/Mage/CatalogSearch/Model/Advanced.php
+to
+/public_html/app/code/local/Mage/CatalogSearch/Model/Advanced.php
+
+Modify line 124, method getAttributes()
+Change 
+->setOrder('main_table.attribute_id', 'asc')
+To
+->setOrder('additional_table.position', 'asc')
+
+Modify DB Table 
+mgtcatalog_eav_attribute
+Attribute name      = Attribute Index
+name                = 71
+description         = 72
+short description   = 73
+sku                 = 74
+price               = 75
+manufacturer        = 81
+color               = 92
+Vender Part Number  = 140
+Manufacture Number  = 141
+Vender              = 142
+Secondary Color     = 144
+Pattern             = 145
+ATV Model           = 178
+UTV Model           = 179
+
+Find
+Match Attribute names with index in DB table
+mgteav_attribute

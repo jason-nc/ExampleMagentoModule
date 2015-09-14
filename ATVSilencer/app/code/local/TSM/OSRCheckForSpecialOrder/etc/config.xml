@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<TSM_OSRCheckForSpecialOrder>
+			<version>1.0</version>
+		</TSM_OSRCheckForSpecialOrder>
+	</modules>
+	<global>
+        	<models>
+            		<tsm_osrcheckforspecialorder>
+                 		<class>TSM_OSRCheckForSpecialOrder_Model</class>
+            		</tsm_osrcheckforspecialorder>
+        	</models>
+        	<events>
+          		<checkout_cart_add_product_complete>
+            			<observers>
+              				<tsm_osrcheckforspecialorder>
+                				<type>singleton</type>
+                				<class>tsm_osrcheckforspecialorder/observer</class>
+                				<method>checkIfSpecialOrder</method>
+              				</tsm_osrcheckforspecialorder>
+            			</observers>
+          		</checkout_cart_add_product_complete>
+        	</events>
+	</global>
+</config>

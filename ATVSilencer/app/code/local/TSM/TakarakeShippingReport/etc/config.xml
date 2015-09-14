@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TSM_TakarakeShippingReport>
+            <version>0.1.0</version>
+        </TSM_TakarakeShippingReport>
+    </modules>
+    <admin>
+        <routers>
+            <!--
+            Tell router to look in Wcl_ReportNewOrders_controllers
+            when the url /admin/reportneworders is used -->
+            <takarakeshippingreport>
+                <use>admin</use>
+                <args>
+                    <module>TSM_TakarakeShippingReport</module>
+                    <frontName>takarakeshippingreport</frontName>
+                </args>
+            </takarakeshippingreport>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <report>
+                <children>
+                    <takarakeshippingreport translate="title" module="takarakeshippingreport">
+                        <!-- This is the name to be displayed in the admin panel under Reports -->
+                        <title>Tucker Rocky Shipping Report</title>
+                        <!--
+                        Specify the controller and location, using the router (defined above),
+                        followed by the controller.
+                        I.e.  Wcl_Reportneworders_controllers_Adminhtml_ReportnewordersController.php -->
+                        <action>takarakeshippingreport/adminhtml_takarakeshippingreport</action>
+                    </takarakeshippingreport>
+                </children>
+            </report>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <report>
+                            <children>
+                                <takarakeshippingreport translate="title" module="takarakeshippingreport">
+                                    <!-- This is the name shown in the Admin role resources -->
+                                    <title>Tucker Rocky Shipping Report</title>
+                                    <action>takarakeshippingreport/adminhtml_takarakeshippingreport</action>
+                                </takarakeshippingreport>
+                            </children>
+                        </report>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <takarakeshippingreport>
+                    <file>tsm_takarakeshippingreport_layout.xml</file>
+                </takarakeshippingreport>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <takarakeshippingreport>
+                <class>TSM_TakarakeShippingReport_Model</class>
+                <resourceModel>takarakeshippingreport</resourceModel>
+            </takarakeshippingreport>
+        </models>
+        <resources>
+            <takarakeshippingreport_setup>
+                <setup>
+                    <module>TSM_TakarakeShippingReport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </takarakeshippingreport_setup>
+            <takarakeshippingreport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </takarakeshippingreport_write>
+            <takarakeshippingreport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </takarakeshippingreport_read>
+        </resources>
+        <blocks>
+            <takarakeshippingreport>
+                <class>TSM_TakarakeShippingReport_Block</class>
+            </takarakeshippingreport>
+        </blocks>
+        <helpers>
+            <takarakeshippingreport>
+                <class>TSM_TakarakeShippingReport_Helper</class>
+            </takarakeshippingreport>
+        </helpers>
+    </global>
+</config>
